@@ -1,0 +1,7 @@
+- hosts: localhost
+  vars:
+    name: My Name is Khan
+  tasks:
+    - name: Print name variable
+      debug:
+        msg: "{{ name }}"
