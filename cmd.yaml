@@ -6,5 +6,4 @@
       shell:
         cmd: curl http://169.254.169.254/latest/meta-data/public-ipv4
       register: ip
-    - name: Show remote web server public ip
-      debug: ip.std_out
+    - debug: ip.std_out
