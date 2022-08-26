@@ -14,3 +14,7 @@ https://docs.ansible.com/ansible/latest/modules/apache2_module_module.html
 
 Handlers
 Ref https://docs.ansible.com/ansible/latest/user_guide/playbooks_handlers.html
+
+shell module to run shell command
+
+Register is use to save the output from the command to use further in playbook
