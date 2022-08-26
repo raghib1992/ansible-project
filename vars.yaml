@@ -1,5 +1,5 @@
 http_port: 80
-name: My Name is Khan
+name: Khan
 courses:
   - kubernetes
   - docker
