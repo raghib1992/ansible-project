@@ -1,17 +1,4 @@
 - hosts: localhost
-  vars:
-    name: My Name is Khan
-    courses:
-      - kubernetes
-      - docker
-      - ansible
-      - terraform
-      - jenkins
-      - maven
-      - gradle
-      - sonarqube
-      - artifactory
-      - git
   tasks:
     - name: Print name variable
       debug:
@@ -19,3 +6,6 @@
     - name: populor courses
       debug:
         msg: "The most popular course is {{ courses [0] }}"
+    - name: Print port variable
+      debug:
+        msg: "{{ http_port }}"

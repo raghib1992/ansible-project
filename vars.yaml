@@ -1,0 +1,13 @@
+http_port: 80
+name: My Name is Khan
+courses:
+  - kubernetes
+  - docker
+  - ansible
+  - terraform
+  - jenkins
+  - maven
+  - gradle
+  - sonarqube
+  - artifactory
+  - git
