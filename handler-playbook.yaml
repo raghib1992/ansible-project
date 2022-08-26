@@ -7,22 +7,23 @@
         name: httpd
         state: installed
       notify:
-        - Start Apache Service
+      - Start Apache Service
+      
     - name: Installed Git
       yum:
         name: git
         state: installed
       notify:
-        - Start Apache Service
+      - Start Apache Service
 
     - name: Installed Apache
       yum:
         name: nano
         state: installed
       notify:
-        - Start Apache Service
+      - Start Apache Service
 
-    handlers:
+  handlers:
     - name: Start Apache Service
       service:
         name: httpd
