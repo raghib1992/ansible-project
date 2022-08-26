@@ -48,7 +48,7 @@
     - name: Removed ApaGitche
       yum:
         name: git
-        state: Removed
+        state: removed
       listen: "uninstall"
     
     - name: Removed Nano
