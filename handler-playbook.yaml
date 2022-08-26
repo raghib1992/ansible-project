@@ -3,15 +3,15 @@
   become: yes
   tasks:
     - name: Install Packages
-      msg: "installed httpd, git and nano"
+      cmd: echo "installed httpd, git and nano"
       # notify: "install"
 
     - name: Start services
-      msg: "Start services of httpd, git and nano"
+      cmd: echo "Start services of httpd, git and nano"
       # notify: "Start Service"
 
     - name: Uninstall Packages
-      msg: "uninstalled httpd, git and nano"
+      cmd: echo "uninstalled httpd, git and nano"
       notify: "uninstall"
 
 
