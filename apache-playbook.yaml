@@ -6,6 +6,10 @@
       yum:
         name: httpd
         state: installed
+    - name: Start Apache Service
+      service:
+        name: httpd
+        state: started
     - name: Removed Apache
       yum:
         name: httpd
