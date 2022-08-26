@@ -2,34 +2,57 @@
   remote_user: root
   become: yes
   tasks:
+    - name: Install Packages
+      msg: "installed httpd, git and nano"
+      # notify: "install"
+
+    - name: Start services
+      msg: "Start services of httpd, git and nano"
+      # notify: "Start Service"
+
+    - name: Uninstall Packages
+      msg: "uninstalled httpd, git and nano"
+      notify: "uninstall"
+
+
+  handlers:
     - name: Installed Apache
       yum:
         name: httpd
         state: installed
-      notify:
-      - Start Apache Service
-      
+      listen: "install"
+
     - name: Installed Git
       yum:
         name: git
         state: installed
-      notify:
-      - Start Apache Service
+      listen: "install"
 
-    - name: Installed Apache
+    - name: Installed nano
       yum:
         name: nano
         state: installed
-      notify:
-      - Start Apache Service
+      listen: "install"
 
-  handlers:
-    - name: Start Apache Service
+    - name: Start Service
       service:
         name: httpd
         state: started
 
-    # - name: Removed Apache
-    #   yum:
-    #     name: httpd
-    #     state: removed
+    - name: Removed Apache
+      yum:
+        name: httpd
+        state: removed
+      listen: "uninstall"
+
+    - name: Removed ApaGitche
+      yum:
+        name: git
+        state: Removed
+      listen: "uninstall"
+    
+    - name: Removed Nano
+      yum:
+        name: nano
+        state: removed
+      listen: "uninstall"
