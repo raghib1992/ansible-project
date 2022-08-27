@@ -1,2 +1,5 @@
 ---
 # tasks file for var_demo
+- name: print varibale
+  debug:
+    msg: "{{ san }}"
