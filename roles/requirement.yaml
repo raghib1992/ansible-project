@@ -1,5 +1,3 @@
-- name: https://github.com/wtanaka/ansible-role-apache-kafka.git
-  type: git
-
-
+- src: https://github.com/companieshouse/ansible-role-apache
+  name: apache-ch
 - name: geerlingguy.docker
