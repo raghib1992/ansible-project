@@ -30,3 +30,8 @@ Role
 to create role 
 
 ansible-galaxy init <role name>
+
+
+for multiple role from files
+
+ansible-agalaxy install --roles-path roles/ -r roles/requirement.yaml

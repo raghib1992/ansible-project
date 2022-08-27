@@ -6,7 +6,7 @@
     state: removed
   listen: "uninstall"
 
-- name: Removed ApaGitche
+- name: Removed Git
   yum:
     name: git
     state: removed
