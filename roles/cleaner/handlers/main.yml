@@ -1,2 +1,19 @@
 ---
 # handlers file for cleaner
+- name: Removed Apache
+  yum:
+    name: httpd
+    state: removed
+  listen: "uninstall"
+
+- name: Removed ApaGitche
+  yum:
+    name: git
+    state: removed
+  listen: "uninstall"
+
+- name: Removed Nano
+  yum:
+    name: nano
+    state: removed
+  listen: "uninstall"

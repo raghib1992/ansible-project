@@ -8,6 +8,4 @@
   shell: echo "Start services of httpd, git and nano"
   # notify: "Start Service"
 
-- name: Uninstall Packages
-  shell: echo "uninstalled httpd, git and nano"
-  notify: "uninstall"
+

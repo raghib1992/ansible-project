@@ -1,2 +1,5 @@
 ---
 # tasks file for cleaner
+- name: Uninstall Packages
+  shell: echo "uninstalled httpd, git and nano"
+  notify: "uninstall"
