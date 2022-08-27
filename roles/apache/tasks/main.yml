@@ -1,2 +1,13 @@
 ---
 # tasks file for apache
+- name: Install Packages
+  shell: echo "installed httpd, git and nano"
+  notify: "install"
+
+- name: Start services
+  shell: echo "Start services of httpd, git and nano"
+  notify: "Start Service"
+
+- name: Uninstall Packages
+  shell: echo "uninstalled httpd, git and nano"
+  # notify: "uninstall"

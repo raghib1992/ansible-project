@@ -1,2 +1,42 @@
 ---
 # handlers file for apache
+- name: Installed Apache
+  yum:
+    name: httpd
+    state: installed
+  listen: "install"
+
+- name: Installed Git
+  yum:
+    name: git
+    state: installed
+  listen: "install"
+
+- name: Installed nano
+  yum:
+    name: nano
+    state: installed
+  listen: "install"
+
+- name: Start Service
+  service:
+    name: httpd
+    state: started
+
+- name: Removed Apache
+  yum:
+    name: httpd
+    state: removed
+  listen: "uninstall"
+
+- name: Removed ApaGitche
+  yum:
+    name: git
+    state: removed
+  listen: "uninstall"
+
+- name: Removed Nano
+  yum:
+    name: nano
+    state: removed
+  listen: "uninstall"

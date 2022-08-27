@@ -24,3 +24,9 @@ varible file
 to get the value from vars.yaml file into our playbook
 run command
 ansible-playbook variable-playbook -e "@vars.yaml" -i hosts.ini
+
+Role 
+
+to create role 
+
+ansible-galaxy init <role name>
