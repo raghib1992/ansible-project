@@ -1,4 +1,4 @@
-- name: https://github.com/organization/repo_name.git
+- name: https://github.com/wtanaka/ansible-role-apache-kafka.git
   type: git
 
 
