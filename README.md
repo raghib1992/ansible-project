@@ -110,12 +110,98 @@ collections:
 ### Define dependencies for role on other role
 #### Mention the name of the role in dependencies section of mata folder
 ***********************************************
+## Dynamic host file
 
-More information on Dynamic Inventories: 
+### More information on Dynamic Inventories: 
 https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html
 
-Link to ec2.py: 
+### Link to ec2.py: 
 https://raw.githubusercontent.com/ansible/ansible/stable-1.9/plugins/inventory/ec2.py
 
-Link to ec2.ini: 
+### Link to ec2.ini: 
 https://raw.githubusercontent.com/ansible/ansible/stable-1.9/plugins/inventory/ec2.ini
+**********************************************
+## Connect with Window remote host
+### Create hostfile
+```
+window anisble_host=172.31.35.73 ansible_user=administrator ansible_password=)U*tFC9*EhJ2zU5LI2!7DQN*-4zBjx-l ansible_connection=winrm ansible_winrm_scheme=https ansible_port=5986 ansible_winrm_server_cert_validation=ignore
+```
+### winrm setup in remote server
+#### Ref https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
+### Run playbook
+```
+ansible-playbook -i window-host.ini -m win_whoami
+ansible-playbook -i window-host.ini -m win_ping
+```
+*******************************************
+## Ansible Vault
+### To encrypt the file
+```
+ansinle-vault encrypt <file name>
+```
+### To view the encypted fiel
+```
+ansible-vault view <file name>
+```
+### Play the playbook with encrypted file hosts.ini
+```
+ansible-playbook playbook.yaml -i hosts.inin --ask-vault-pass
+```
+### chenge the encryption key
+```
+Change the password of the encrypted vault file
+```
+### To change the encryption key
+```
+ansible-vault rekey hosts.ini
+```
+### to decrypt the file
+```
+ansible-vault decrypt <file-name>
+```
+*************************************************
+## Hasicorp Vault
+
+### Link to install Vault: https://learn.hashicorp.com/tutorials/vault/getting-started-install
+
+### Link to the documentation for the vault module: https://docs.ansible.com/ansible/latest/plugins/lookup/hashi_vault.html
+
+### If you run into: in progress in another thread when fork() was called
+
+Run:
+```
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+```
+Then re-run the command
+
+### Install python lib hvac
+pip install hvac
+
+Ansible mast install through pip
+
+vault-demo.yaml
+```
+- hosts: localhost
+  vars:
+    vault_token:
+    vault_url:
+    db_password:
+    system_password:
+  tasks:
+    - name: Value for DB password
+      debug:
+        msg: "db Passowrd {{ db_password }}"
+    - name: Value for system password
+      debug:
+        msg: "db Passowrd {{ system_password }}"
+```
+### developer mode, not recommended for prod
+vault server -dev 
+
+vault secret enable -version=1 -path=secret kv
+
+vault kv put secret/password/db data=dbpass123
+
+vault kv put secret/password/system data=systempass123
+
+ansible-playbook -i hosts.ini vault-demo.yaml
